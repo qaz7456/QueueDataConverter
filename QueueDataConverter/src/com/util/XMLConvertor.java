@@ -16,7 +16,6 @@ import javax.xml.bind.JAXB;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-
 import org.apache.commons.beanutils.DynaBean;
 import org.apache.commons.beanutils.DynaProperty;
 import org.apache.commons.beanutils.LazyDynaBean;
@@ -33,6 +32,7 @@ import org.xml.sax.SAXException;
 import com.bean.Body;
 import com.bean.CglibBean;
 import com.bean.Request;
+import com.bean.Response;
 import com.bean.TemplateResponseBean;
 import com.thoughtworks.xstream.XStream;
 
@@ -406,19 +406,32 @@ public class XMLConvertor {
 		// String result = XMLConvertor.convertor(templateMap, sourceAttrMap,
 		// type);
 		// System.out.println(result);
+
+		Body body = new Body();
+		body.setProduct((String) templateMap.get("product"));
+		body.setSender((String) templateMap.get("sender"));
+
+		StringWriter sw = new StringWriter();
 		
-		if ("Request".equals(type)) {
+		switch (type) {
+		case "Request":
 			Request request = new Request();
 			request.setHead((String) templateMap.get("head"));
 			request.setLang((String) templateMap.get("lang"));
 			request.setService((String) templateMap.get("service"));
-			Body body = new Body();
-			body.setProduct((String) templateMap.get("product"));
-			body.setSender((String) templateMap.get("sender"));
 			request.setBody(body);
-			StringWriter sw = new StringWriter();
 			JAXB.marshal(request, sw);
 			logger.debug(sw.toString());
+			break;
+		case "Response":
+			Response response = new Response();
+			response.setHead((String) templateMap.get("head"));
+			response.setLang((String) templateMap.get("lang"));
+			response.setService((String) templateMap.get("service"));
+			response.setBody(body);
+			JAXB.marshal(response, sw);
+			logger.debug(sw.toString());
+			break;
 		}
 		// }
 
