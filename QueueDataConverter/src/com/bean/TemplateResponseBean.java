@@ -2,17 +2,25 @@ package com.bean;
 
 import java.io.Serializable;
 
+import com.converter.TemplateResponseConverter;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+import com.thoughtworks.xstream.annotations.XStreamConverter;
 
 public class TemplateResponseBean  {
 
-//    @XStreamAsAttribute
-//	@XStreamAlias(value="service")
 	private String service;
-	private String File;
-	private String Source;
-	private String Description;
+	private String lang;
+	private String sender;
+	private String product;
+
+	public String getLang() {
+		return lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
 
 	public String getService() {
 		return service;
@@ -22,28 +30,44 @@ public class TemplateResponseBean  {
 		this.service = service;
 	}
 
-	public String getFile() {
-		return File;
+	public String getSender() {
+		return sender;
 	}
 
-	public void setFile(String file) {
-		File = file;
+	public void setSender(String sender) {
+		this.sender = sender;
 	}
 
-	public String getSource() {
-		return Source;
+	public String getProduct() {
+		return product;
 	}
 
-	public void setSource(String source) {
-		Source = source;
+	public void setProduct(String product) {
+		this.product = product;
 	}
 
-	public String getDescription() {
-		return Description;
-	}
-
-	public void setDescription(String description) {
-		Description = description;
-	}
+//	public String getFile() {
+//		return File;
+//	}
+//
+//	public void setFile(String file) {
+//		File = file;
+//	}
+//
+//	public String getSource() {
+//		return Source;
+//	}
+//
+//	public void setSource(String source) {
+//		Source = source;
+//	}
+//
+//	public String getDescription() {
+//		return Description;
+//	}
+//
+//	public void setDescription(String description) {
+//		Description = description;
+//	}
 
 }

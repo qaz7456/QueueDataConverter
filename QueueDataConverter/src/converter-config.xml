@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldName>
+		<source>Carrier</source>
+		<destination>sender</destination>
+		<description>寄送者</description>
+	</fieldName>
+	<fieldName>
+		<source>CarrierProduct</source>
+		<destination>product</destination>
+		<description>產品</description>
+	</fieldName>
+	<fieldName>
+		<source>service</source>
+		<destination>service</destination>
+		<description>服務</description>
+	</fieldName>
+	<fieldName>
+		<source>lang</source>
+		<destination>lang</destination>
+		<description>語言</description>
+	</fieldName>
+</config>
